@@ -1,4 +1,7 @@
+const os = require("os");
 const puppeteer = require("puppeteer");
+
+const username = os.userInfo().username;
 
 const delay = (sec) =>
   new Promise((resolve, _) => setTimeout(() => resolve(), sec * 1000));
@@ -12,7 +15,7 @@ const SELECTORS = {
   SEND_BUTTON: 'div:nth-child(2) > button > span[data-icon="send"]',
 };
 
-const userDataDir = "C:\\Users\\vikram\\AppData\\Local\\Chromium\\User Data";
+const userDataDir = `C:\\Users\\${username}\\AppData\\Local\\Chromium\\User Data`;
 
 const openWhatsAppPage = async function (showBrowser = true) {
   try {
